@@ -9,14 +9,14 @@
 
 table {
   width: 100%;
-  margin-bottom: @baseline;
+  margin-bottom: $baseline;
   padding: 0;
   text-align: left;
   border-collapse: separate;
   font-size: 13px;
   th, td {
     padding: 10px 10px 9px;
-    line-height: @baseline * .75;
+    line-height: $baseline * .75;
     vertical-align: middle;
     border-bottom: 1px solid #ddd;
   }
@@ -61,7 +61,7 @@ table.zebra-striped {
   th.headerSortDown {
     background-color: rgba(141,192,219,.25);
     text-shadow: 0 1px 1px rgba(255,255,255,.75);
-    .border-radius(3px 3px 0 0);
+    @include border-radius(3px 3px 0 0);
   }
 
   // Style the ascending (reverse alphabetical) column header
@@ -79,7 +79,7 @@ table.zebra-striped {
   th.headerSortDown:hover {
     &:after {
       visibility:visible;
-      .opacity(60);
+      @include opacity(60);
     }
   }
 
@@ -91,62 +91,62 @@ table.zebra-striped {
       border-right: 4px solid transparent;
       border-top: 4px solid #000;
       visibility:visible;
-      .box-shadow(none); //can't add boxshadow to downward facing arrow :(
-      .opacity(60);
+      @include box-shadow(none); //can't add boxshadow to downward facing arrow :(
+      @include opacity(60);
     }
   }
 
   // Blue Table Headings
   th.blue {
-    color: @blue;
-    border-bottom-color: @blue;
+    color: $blue;
+    border-bottom-color: $blue;
   }
   th.headerSortUp.blue, th.headerSortDown.blue {
-    background-color: lighten(@blue, 40%);
+    background-color: lighten($blue, 40%);
   }
 
   // Green Table Headings
   th.green {
-    color: @green;
-    border-bottom-color: @green;
+    color: $green;
+    border-bottom-color: $green;
   }
   th.headerSortUp.green, th.headerSortDown.green { // backround color is 20% of border color
-    background-color: lighten(@green, 40%);
+    background-color: lighten($green, 40%);
   }
 
   // Red Table Headings
   th.red {
-    color: @red;
-    border-bottom-color: @red;
+    color: $red;
+    border-bottom-color: $red;
   }
   th.headerSortUp.red, th.headerSortDown.red {
-    background-color: lighten(@red, 50%);
+    background-color: lighten($red, 50%);
   }
 
   // Yellow Table Headings
   th.yellow {
-    color: @yellow;
-    border-bottom-color: @yellow;
+    color: $yellow;
+    border-bottom-color: $yellow;
   }
   th.headerSortUp.yellow, th.headerSortDown.yellow {
-    background-color: lighten(@yellow, 40%);
+    background-color: lighten($yellow, 40%);
   }
 
   // Orange Table Headings
   th.orange {
-    color: @orange;
-    border-bottom-color: @orange;
+    color: $orange;
+    border-bottom-color: $orange;
   }
   th.headerSortUp.orange, th.headerSortDown.orange {
-    background-color: lighten(@orange, 40%);
+    background-color: lighten($orange, 40%);
   }
 
   // Purple Table Headings
   th.purple {
-    color: @purple;
-    border-bottom-color: @purple;
+    color: $purple;
+    border-bottom-color: $purple;
   }
   th.headerSortUp.purple, th.headerSortDown.purple {
-    background-color: lighten(@purple, 40%);
+    background-color: lighten($purple, 40%);
   }
 }
