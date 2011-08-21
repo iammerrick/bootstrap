@@ -92,24 +92,24 @@ $analog2:           spin($baseColor, -22);
 }
 
 // Font Stacks
-@mixin shorthand($weight: normal, $size: 14px, $lineHeight: 20px) {
+@mixin font-shorthand($weight: normal, $size: 14px, $lineHeight: 20px) {
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
-@mixin sans-serif($weight: normal, $size: 14px, $lineHeight: 20px) {
+@mixin font-sans-serif($weight: normal, $size: 14px, $lineHeight: 20px) {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
-@mixin serif($weight: normal, $size: 14px, $lineHeight: 20px) {
+@mixin font-serif($weight: normal, $size: 14px, $lineHeight: 20px) {
   font-family: "Georgia", Times New Roman, Times, serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
-@mixin monospace($weight: normal, $size: 12px, $lineHeight: 20px) {
+@mixin font-monospace($weight: normal, $size: 12px, $lineHeight: 20px) {
   font-family: "Monaco", Courier New, monospace;
   font-size: $size;
   font-weight: $weight;
@@ -181,7 +181,7 @@ $analog2:           spin($baseColor, -22);
 // Buttons
 @mixin button($color: #fff, $padding: 4px 14px, $textColor: #333, $textShadow: 0 1px 1px rgba(255,255,255,.75), $fontSize: 13px, $borderColor: rgba(0,0,0,.1), $borderRadius: 4px) {
   display: inline-block;
-  @include vertical-three-colors($color, $color, 0.25, darken($color, 10%));
+  @include gradient-vertical-three-colors($color, $color, 0.25, darken($color, 10%));
   padding: $padding;
   text-shadow: $textShadow;
   color: $textColor;
@@ -200,18 +200,16 @@ $analog2:           spin($baseColor, -22);
 }
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
-#translucent {
-  @mixin background($color: $white, $alpha: 1) {
-    background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-	}
-	@mixin border($color: $white, $alpha: 1) {
-		border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-		background-clip: padding-box;
-	}
-}
+@mixin translucent-background($color: $white, $alpha: 1) {
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+      }
+      @mixin translucent-border($color: $white, $alpha: 1) {
+        border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+        background-clip: padding-box;
+      }
 
 // Gradients
-@mixin horizontal ($startColor: #555, $endColor: #333) {
+@mixin gradient-horizontal ($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, right top, from($startColor), to($endColor)); // Konqueror
@@ -224,7 +222,7 @@ $analog2:           spin($baseColor, -22);
   filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1)"; // IE6 & IE7
   background-image: linear-gradient(left, $startColor, $endColor); // Le standard
 }
-@mixin vertical ($startColor: #555, $endColor: #333) {
+@mixin gradient-vertical ($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
@@ -237,7 +235,7 @@ $analog2:           spin($baseColor, -22);
   filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)"; // IE6 & IE7
   background-image: linear-gradient($startColor, $endColor); // The standard
 }
-@mixin directional ($startColor: #555, $endColor: #333, $deg: 45deg) {
+@mixin gradient-directional ($startColor: #555, $endColor: #333, $deg: 45deg) {
   background-color: $endColor;
   background-repeat: repeat-x;
   background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
@@ -246,7 +244,7 @@ $analog2:           spin($baseColor, -22);
   background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
   background-image: linear-gradient($deg, $startColor, $endColor); // The standard
 }
-@mixin vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 0.5, $endColor: #c3325f) {
+@mixin gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 0.5, $endColor: #c3325f) {
   background-color: $endColor;
   background-repeat: no-repeat;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));

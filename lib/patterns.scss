@@ -8,7 +8,7 @@
 
 // Topbar for Branding and Nav
 div.topbar {
-  @include vertical(#333, #222);
+  @include gradient-vertical(#333, #222);
   height: 40px;
   position: fixed;
   top: 0;
@@ -55,7 +55,7 @@ div.topbar {
     input {
       background-color: $grayLight;
       background-color: rgba(255,255,255,.3);
-      @include sans-serif(13px, normal, 1);
+      @include font-sans-serif(13px, normal, 1);
       width: 220px;
       padding: 4px 9px;
       color: #fff;
@@ -276,7 +276,7 @@ div.page-header {
 
 // One-liner alert bars
 div.alert-message {
-  @include vertical(transparent, rgba(0,0,0,0.15));
+  @include gradient-vertical(transparent, rgba(0,0,0,0.15));
   background-color: $grayLighter;
   margin-bottom: $baseline;
   padding: 8px 15px;
