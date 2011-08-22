@@ -134,70 +134,71 @@ $analog2:           spin($baseColor, -22);
   margin-left: ($gridColumnWidth * $columnOffset) + ($gridGutterWidth * ($columnOffset - 1)) + $extraSpace !important;
 }
 @mixin offset($columnOffset: 1) {
-  @include offsetMath(40px);
+  @include offsetMath(40px, $columnOffset);
   &:first-child {
-    @include offsetMath(20px);
+    @include offsetMath(20px, $columnOffset);
   }
 }
 
 // Border Radius
 @mixin border-radius($radius: 5px) {
   -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
 }
 
 // Drop shadows
 @mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: $shadow;
-  -moz-box-shadow: $shadow;
-  box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
 }
 
 // Transitions
 @mixin transition($transition) {
 	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	transition: $transition;
+	   -moz-transition: $transition;
+	        transition: $transition;
 }
 
 // Background clipping
 @mixin background-clip($clip) {
 	-webkit-background-clip: $clip;
-	-moz-background-clip: $clip;
-	background-clip: $clip;
+	   -moz-background-clip: $clip;
+	        background-clip: $clip;
 }
 
 // CSS3 Content Columns
 @mixin content-columns($columnCount, $columnGap: 20px) {
 	-webkit-column-count: $columnCount;
-	-webkit-column-gap: $columnGap;
-	-moz-column-count: $columnCount;
-	-moz-column-gap: $columnGap;
-	column-count: $columnCount;
-	column-gap: $columnGap;
+	   -moz-column-count: $columnCount;
+          column-count: $columnCount;
+  -webkit-column-gap: $columnGap;
+	   -moz-column-gap: $columnGap;
+          column-gap: $columnGap;
 }
 
 // Buttons
-@mixin button($color: #fff, $padding: 4px 14px, $textColor: #333, $textShadow: 0 1px 1px rgba(255,255,255,.75), $fontSize: 13px, $borderColor: rgba(0,0,0,.1), $borderRadius: 4px) {
+/*.button($color: #fff, $padding: 4px 14px, $textColor: #333, $textShadow: 0 1px 1px rgba(255,255,255,.75), $fontSize: 13px, $borderColor: rgba(0,0,0,.1), $borderRadius: 4px) {
   display: inline-block;
-  @include gradient-vertical-three-colors($color, $color, 0.25, darken($color, 10%));
+  #gradient > .vertical-three-colors($color, $color, 0.25, darken($color, 10%));
   padding: $padding;
   text-shadow: $textShadow;
   color: $textColor;
   font-size: $fontSize;
   line-height: $baseline;
-  border: 1px solid $borderColor;
-  border-bottom-color: fadein($borderColor, 15%);
-  @include border-radius($borderRadius);
+  border: 1px solid;
+  border-color: #ccc #ccc #bbb;
+  border-color: borderColor borderColor fadein($borderColor, 15%);
+  .border-radius($borderRadius);
   $shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-  @include box-shadow($shadow);
+  .box-shadow($shadow);
   &:hover {
     background-position: 0 -15px;
     color: $textColor;
     text-decoration: none;
   }
-}
+}*/
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 @mixin translucent-background($color: $white, $alpha: 1) {
@@ -218,8 +219,6 @@ $analog2:           spin($baseColor, -22);
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1)"; // IE8+
-  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1)"; // IE6 & IE7
   background-image: linear-gradient(left, $startColor, $endColor); // Le standard
 }
 @mixin gradient-vertical ($startColor: #555, $endColor: #333) {
@@ -231,8 +230,6 @@ $analog2:           spin($baseColor, -22);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient($startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient($startColor, $endColor); // Opera 11.10
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)"; // IE8+
-  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)"; // IE6 & IE7
   background-image: linear-gradient($startColor, $endColor); // The standard
 }
 @mixin gradient-directional ($startColor: #555, $endColor: #333, $deg: 45deg) {
@@ -259,6 +256,6 @@ $analog2:           spin($baseColor, -22);
 @mixin opacity($opacity: 100) {
 	filter: "alpha(opacity=#{$opacity})";
 	-khtml-opacity: $opacity / 100;
-	-moz-opacity: $opacity / 100;
-	opacity: $opacity / 100;
+	  -moz-opacity: $opacity / 100;
+	       opacity: $opacity / 100;
 }
