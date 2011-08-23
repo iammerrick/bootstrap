@@ -179,35 +179,35 @@ $analog2:           spin($baseColor, -22);
 }
 
 // Buttons
-/*.button($color: #fff, $padding: 4px 14px, $textColor: #333, $textShadow: 0 1px 1px rgba(255,255,255,.75), $fontSize: 13px, $borderColor: rgba(0,0,0,.1), $borderRadius: 4px) {
-  display: inline-block;
-  #gradient > .vertical-three-colors($color, $color, 0.25, darken($color, 10%));
-  padding: $padding;
-  text-shadow: $textShadow;
-  color: $textColor;
-  font-size: $fontSize;
-  line-height: $baseline;
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
-  border-color: borderColor borderColor fadein($borderColor, 15%);
-  .border-radius($borderRadius);
-  $shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-  .box-shadow($shadow);
-  &:hover {
-    background-position: 0 -15px;
-    color: $textColor;
-    text-decoration: none;
-  }
-}*/
+// .button($color: #fff, $padding: 4px 14px, $textColor: #333, $textShadow: 0 1px 1px rgba(255,255,255,.75), $fontSize: 13px, $borderColor: rgba(0,0,0,.1), $borderRadius: 4px) {
+//  display: inline-block;
+//  #gradient > .vertical-three-colors($color, $color, 0.25, darken($color, 10%));
+//  padding: $padding;
+//  text-shadow: $textShadow;
+//  color: $textColor;
+//  font-size: $fontSize;
+//  line-height: $baseline;
+//  border: 1px solid;
+//  border-color: #ccc #ccc #bbb;
+//  border-color: borderColor borderColor fadein($borderColor, 15%);
+//  .border-radius($borderRadius);
+//  $shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+//  .box-shadow($shadow);
+//  &:hover {
+//    background-position: 0 -15px;
+//    color: $textColor;
+//    text-decoration: none;
+//  }
+// }
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 @mixin translucent-background($color: $white, $alpha: 1) {
   background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-      }
-      @mixin translucent-border($color: $white, $alpha: 1) {
-        border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-        background-clip: padding-box;
-      }
+}
+@mixin translucent-border($color: $white, $alpha: 1) {
+  border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  background-clip: padding-box;
+}
 
 // Gradients
 @mixin gradient-horizontal ($startColor: #555, $endColor: #333) {
@@ -254,8 +254,8 @@ $analog2:           spin($baseColor, -22);
 
 // Opacity
 @mixin opacity($opacity: 100) {
-	filter: "alpha(opacity=#{$opacity})";
-	-khtml-opacity: $opacity / 100;
-	  -moz-opacity: $opacity / 100;
-	       opacity: $opacity / 100;
+  filter: "alpha(opacity=#{$opacity})";
+  -khtml-opacity: $opacity / 100;
+    -moz-opacity: $opacity / 100;
+         opacity: $opacity / 100;
 }
